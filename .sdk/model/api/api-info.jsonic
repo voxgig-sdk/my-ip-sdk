@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "My IP API Support"
+        url: "https://www.miip.my/contact"
+      }
+      description: "This API allows users to programmatically retrieve their IP address along with the country it is located in and the corresponding two-letter country code. It provides responses in simple JSON format and is free to use for both personal and commercial applications."
+      license: {
+        name: "Free to use"
+        url: "https://www.miip.my/api-docs/"
+      }
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.miip.my"
+        }
+      ]
+      termsOfService: "https://www.miip.my/terms-of-service"
+      title: "My IP API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

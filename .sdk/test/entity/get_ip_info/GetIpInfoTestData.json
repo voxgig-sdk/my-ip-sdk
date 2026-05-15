@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "get_ip_info": {
+      "GET_IP_INFO00": {
+        "cc": "s1e",
+        "country": "s1f",
+        "ip": "s20"
+      },
+      "GET_IP_INFO01": {
+        "cc": "s3c",
+        "country": "s3d",
+        "ip": "s3e"
+      },
+      "GET_IP_INFO02": {
+        "cc": "s5a",
+        "country": "s5b",
+        "ip": "s5c"
+      }
+    }
+  },
+  "new": {
+    "get_ip_info": {
+      "get_ip_info_ref01": {
+        "cc": "s78",
+        "country": "s79",
+        "ip": "s7a"
+      }
+    }
+  }
+}

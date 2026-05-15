@@ -1,0 +1,44 @@
+# Entity: get_ip_info
+
+main: kit: entity: get_ip_info: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "cc"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "country"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "ip"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "get_ip_info"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          method: "GET"
+          orig: "/"
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

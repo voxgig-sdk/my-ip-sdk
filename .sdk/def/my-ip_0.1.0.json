@@ -1,0 +1,111 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "My IP API",
+    "description": "This API allows users to programmatically retrieve their IP address along with the country it is located in and the corresponding two-letter country code. It provides responses in simple JSON format and is free to use for both personal and commercial applications.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "My IP API Support",
+      "url": "https://www.miip.my/contact"
+    },
+    "termsOfService": "https://www.miip.my/terms-of-service",
+    "license": {
+      "name": "Free to use",
+      "url": "https://www.miip.my/api-docs/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.miip.my",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get IP Address Information",
+        "description": "Retrieves the client's IP address along with the country location and two-letter country code in ISO 3166-1 alpha-2 format.",
+        "operationId": "getIpInfo",
+        "tags": [
+          "IP Information"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with IP address information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IpResponse"
+                },
+                "example": {
+                  "ip": "66.249.75.9",
+                  "country": "United States",
+                  "cc": "US"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "IpResponse": {
+        "type": "object",
+        "required": [
+          "ip",
+          "country",
+          "cc"
+        ],
+        "properties": {
+          "ip": {
+            "type": "string",
+            "description": "IP Address of the client making the request",
+            "example": "66.249.75.9"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country location of the IP address in English language",
+            "example": "United States"
+          },
+          "cc": {
+            "type": "string",
+            "description": "Two-letter country code in ISO 3166-1 alpha-2 format",
+            "pattern": "^[A-Z]{2}$",
+            "example": "US"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "IP Information",
+      "description": "Endpoints for retrieving IP address information"
+    }
+  ],
+  "externalDocs": {
+    "description": "Full API Documentation",
+    "url": "https://www.miip.my/api-docs/"
+  }
+}
