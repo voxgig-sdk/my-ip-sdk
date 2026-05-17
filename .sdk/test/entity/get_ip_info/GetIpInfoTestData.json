@@ -4,17 +4,20 @@
       "GET_IP_INFO00": {
         "cc": "s1e",
         "country": "s1f",
-        "ip": "s20"
+        "ip": "s20",
+        "id": "GET_IP_INFO00"
       },
       "GET_IP_INFO01": {
         "cc": "s3c",
         "country": "s3d",
-        "ip": "s3e"
+        "ip": "s3e",
+        "id": "GET_IP_INFO01"
       },
       "GET_IP_INFO02": {
         "cc": "s5a",
         "country": "s5b",
-        "ip": "s5c"
+        "ip": "s5c",
+        "id": "GET_IP_INFO02"
       }
     }
   },

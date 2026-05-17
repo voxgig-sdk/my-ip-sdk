@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/my-ip-sdk"
-	"github.com/voxgig-sdk/my-ip-sdk/core"
+	sdk "github.com/voxgig-sdk/my-ip-sdk/go"
+	"github.com/voxgig-sdk/my-ip-sdk/go/core"
 )
 
 func TestGetIpInfoDirect(t *testing.T) {

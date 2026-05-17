@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/my-ip-sdk"
-	"github.com/voxgig-sdk/my-ip-sdk/core"
+	sdk "github.com/voxgig-sdk/my-ip-sdk/go"
+	"github.com/voxgig-sdk/my-ip-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/my-ip-sdk/go/utility/struct"
 )
 
 func TestGetIpInfoEntity(t *testing.T) {

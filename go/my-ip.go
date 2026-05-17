@@ -1,10 +1,10 @@
 package voxgigmyipsdk
 
 import (
-	"github.com/voxgig-sdk/my-ip-sdk/core"
-	"github.com/voxgig-sdk/my-ip-sdk/entity"
-	"github.com/voxgig-sdk/my-ip-sdk/feature"
-	_ "github.com/voxgig-sdk/my-ip-sdk/utility"
+	"github.com/voxgig-sdk/my-ip-sdk/go/core"
+	"github.com/voxgig-sdk/my-ip-sdk/go/entity"
+	"github.com/voxgig-sdk/my-ip-sdk/go/feature"
+	_ "github.com/voxgig-sdk/my-ip-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
