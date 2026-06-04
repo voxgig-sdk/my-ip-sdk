@@ -59,14 +59,12 @@ def _get_ip_info_direct_setup(mockres):
     env = runner.env_override({
         "MYIP_TEST_GET_IP_INFO_ENTID": {},
         "MYIP_TEST_LIVE": "FALSE",
-        "MYIP_APIKEY": "NONE",
     })
 
     live = env.get("MYIP_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("MYIP_APIKEY"),
         }
         client = MyIpSDK(merged_opts)
         return {
