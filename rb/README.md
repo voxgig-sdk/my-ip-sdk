@@ -10,13 +10,13 @@ The Ruby SDK for the MyIp API — an entity-oriented client using idiomatic Ruby
 
 ## Install
 ```bash
-gem install my-ip-sdk
+gem install voxgig-sdk-my-ip
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "my-ip-sdk"
+gem "voxgig-sdk-my-ip"
 ```
 
 Then run:

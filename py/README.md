@@ -10,7 +10,7 @@ The Python SDK for the MyIp API — an entity-oriented client following Pythonic
 
 ## Install
 ```bash
-pip install my-ip-sdk
+pip install voxgig-sdk-my-ip
 ```
 
 Or install from source:

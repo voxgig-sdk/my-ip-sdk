@@ -10,7 +10,7 @@ The TypeScript SDK for the MyIp API — a type-safe, entity-oriented client with
 
 ## Install
 ```bash
-npm install my-ip
+npm install @voxgig-sdk/my-ip
 ```
 ## Tutorial: your first API call
 

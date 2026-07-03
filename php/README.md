@@ -10,7 +10,7 @@ The PHP SDK for the MyIp API — an entity-oriented client using PHP conventions
 
 ## Install
 ```bash
-composer require voxgig/my-ip-sdk
+composer require voxgig-sdk/my-ip
 ```
 
 
