@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'MY_IP_TEST_GET_IP_INFO_ENTID': idmap,
     'MY_IP_TEST_LIVE': 'FALSE',
     'MY_IP_TEST_EXPLAIN': 'FALSE',
+    'MY_IP_APIKEY': 'NONE',
   })
 
   idmap = env['MY_IP_TEST_GET_IP_INFO_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new MyIpSDK(merge([
       {
+        apikey: env.MY_IP_APIKEY,
       },
       extra
     ]))

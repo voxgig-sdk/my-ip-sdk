@@ -22,27 +22,7 @@ main: {
       termsOfService: "https://www.miip.my/terms-of-service"
       title: "My IP API"
       version: "1.0.0"
-      tagline: "Look up the caller's public IP address with its country name and ISO country code"
-      homepage: "https://www.miip.my/"
-      docs_url: "https://www.miip.my/api-docs/"
-      license_short: "Free for personal and commercial use; credit MIIP.my requested."
-      license_md: `- Free to use for both personal and commercial projects.
-- Attribution to [MIIP.my](https://www.miip.my/) is requested to keep the service available.
-- No formal rate limit documented when attribution is provided.
-- No authentication or API key required.`
-      about_md: `[My IP API](https://www.miip.my/) is a small, free service that echoes back the calling client's public IP address together with the country it resolves to. It is operated by VPS.org LLC (created by nadermx), which also runs regional variants such as \`miip.co\` (Colombia) and \`miip.mx\` (Mexico).
-
-What you get from the API:
-
-- \`ip\` — the requesting client's IP address (IPv4 or IPv6 as seen by the server)
-- \`country\` — the country name in English
-- \`cc\` — the ISO 3166-1 alpha-2 country code
-
-A single GET request to \`https://api.miip.my\` returns this data as a simple JSON object. CORS is enabled, so the endpoint can be called directly from browser code, and no API key or signup is needed.`
-      entity_desc: {
-        get_ip_info: "Returns the caller's IP address together with the resolved country name and ISO alpha-2 country code via a GET request to the root endpoint at `https://api.miip.my`."
-      }
-      auth: false
     }
   }
 }
+

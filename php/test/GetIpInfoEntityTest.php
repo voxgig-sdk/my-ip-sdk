@@ -85,6 +85,7 @@ function get_ip_info_basic_setup($extra)
         "MYIP_TEST_GET_IP_INFO_ENTID" => $idmap,
         "MYIP_TEST_LIVE" => "FALSE",
         "MYIP_TEST_EXPLAIN" => "FALSE",
+        "MYIP_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -96,6 +97,7 @@ function get_ip_info_basic_setup($extra)
     if ($env["MYIP_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["MYIP_APIKEY"],
             ],
             $extra ?? [],
         ]);

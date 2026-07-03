@@ -1,20 +1,8 @@
 # MyIp SDK
 
-Look up the caller's public IP address with its country name and ISO country code
+My IP API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About My IP API
-
-[My IP API](https://www.miip.my/) is a small, free service that echoes back the calling client's public IP address together with the country it resolves to. It is operated by VPS.org LLC (created by nadermx), which also runs regional variants such as `miip.co` (Colombia) and `miip.mx` (Mexico).
-
-What you get from the API:
-
-- `ip` — the requesting client's IP address (IPv4 or IPv6 as seen by the server)
-- `country` — the country name in English
-- `cc` — the ISO 3166-1 alpha-2 country code
-
-A single GET request to `https://api.miip.my` returns this data as a simple JSON object. CORS is enabled, so the endpoint can be called directly from browser code, and no API key or signup is needed.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install my-ip-sdk
 luarocks install my-ip-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { MyIpSDK } from 'my-ip'
 
-const client = new MyIpSDK({})
+const client = new MyIpSDK({
+  apikey: process.env.MY-IP_APIKEY,
+})
 
+// Load getipinfo data
+const getipinfo = await client.GetIpInfo().load({})
+console.log(getipinfo.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **GetIpInfo** | Returns the caller's IP address together with the resolved country name and ISO alpha-2 country code via a GET request to the root endpoint at `https://api.miip.my`. | `/` |
+| **GetIpInfo** |  | `/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -108,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from myip_sdk import MyIpSDK
 
-client = MyIpSDK({})
+client = MyIpSDK({
+    "apikey": os.environ.get("MY-IP_APIKEY"),
+})
 
 
 # Load a specific getipinfo
-getipinfo, err = client.GetIpInfo(None).load(
-    {"id": "example_id"}, None
-)
+getipinfo, err = client.GetIpInfo().load({"id": "example_id"})
+print(getipinfo)
 ```
 
 ### PHP
@@ -125,13 +119,14 @@ getipinfo, err = client.GetIpInfo(None).load(
 <?php
 require_once 'myip_sdk.php';
 
-$client = new MyIpSDK([]);
+$client = new MyIpSDK([
+    "apikey" => getenv("MY-IP_APIKEY"),
+]);
 
 
 // Load a specific getipinfo
-[$getipinfo, $err] = $client->GetIpInfo(null)->load(
-    ["id" => "example_id"], null
-);
+[$getipinfo, $err] = $client->GetIpInfo()->load(["id" => "example_id"]);
+print_r($getipinfo);
 ```
 
 ### Golang
@@ -139,8 +134,13 @@ $client = new MyIpSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/my-ip-sdk/go"
 
-client := sdk.NewMyIpSDK(map[string]any{})
+client := sdk.NewMyIpSDK(map[string]any{
+    "apikey": os.Getenv("MY-IP_APIKEY"),
+})
 
+// Load getipinfo data
+getipinfo, err := client.GetIpInfo(nil).Load(map[string]any{}, nil)
+fmt.Println(getipinfo)
 ```
 
 ### Ruby
@@ -148,13 +148,14 @@ client := sdk.NewMyIpSDK(map[string]any{})
 ```ruby
 require_relative "MyIp_sdk"
 
-client = MyIpSDK.new({})
+client = MyIpSDK.new({
+  "apikey" => ENV["MY-IP_APIKEY"],
+})
 
 
 # Load a specific getipinfo
-getipinfo, err = client.GetIpInfo(nil).load(
-  { "id" => "example_id" }, nil
-)
+getipinfo, err = client.GetIpInfo().load({ "id" => "example_id" })
+puts getipinfo
 ```
 
 ### Lua
@@ -162,13 +163,14 @@ getipinfo, err = client.GetIpInfo(nil).load(
 ```lua
 local sdk = require("my-ip_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("MY-IP_APIKEY"),
+})
 
 
 -- Load a specific getipinfo
-local getipinfo, err = client:GetIpInfo(nil):load(
-  { id = "example_id" }, nil
-)
+local getipinfo, err = client:GetIpInfo():load({ id = "example_id" })
+print(getipinfo)
 ```
 
 ## Unit testing in offline mode
@@ -187,25 +189,21 @@ const result = await client.GetIpInfo().load({ id: 'test01' })
 ### Python
 
 ```python
-client = MyIpSDK.test(None, None)
-result, err = client.GetIpInfo(None).load(
-    {"id": "test01"}, None
-)
+client = MyIpSDK.test()
+result, err = client.GetIpInfo().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = MyIpSDK::test(null, null);
-[$result, $err] = $client->GetIpInfo(null)->load(
-    ["id" => "test01"], null
-);
+$client = MyIpSDK::test();
+[$result, $err] = $client->GetIpInfo()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.GetIpInfo(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -214,19 +212,15 @@ result, err := client.GetIpInfo(nil).Load(
 ### Ruby
 
 ```ruby
-client = MyIpSDK.test(nil, nil)
-result, err = client.GetIpInfo(nil).load(
-  { "id" => "test01" }, nil
-)
+client = MyIpSDK.test
+result, err = client.GetIpInfo().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:GetIpInfo(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:GetIpInfo():load({ id = "test01" })
 ```
 
 ## How it works
@@ -330,16 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the My IP API
-
-- Upstream: [https://www.miip.my/](https://www.miip.my/)
-- API docs: [https://www.miip.my/api-docs/](https://www.miip.my/api-docs/)
-
-- Free to use for both personal and commercial projects.
-- Attribution to [MIIP.my](https://www.miip.my/) is requested to keep the service available.
-- No formal rate limit documented when attribution is provided.
-- No authentication or API key required.
 
 ---
 
