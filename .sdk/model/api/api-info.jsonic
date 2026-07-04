@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "My IP API Support"
         url: "https://www.miip.my/contact"

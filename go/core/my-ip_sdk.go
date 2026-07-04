@@ -245,6 +245,9 @@ func (sdk *MyIpSDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// GetIpInfo returns a GetIpInfo entity bound to this client.
+// Idiomatic usage: client.GetIpInfo(nil).List(nil, nil) or
+// client.GetIpInfo(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MyIpSDK) GetIpInfo(data map[string]any) MyIpEntity {
 	return NewGetIpInfoEntityFunc(sdk, data)
 }

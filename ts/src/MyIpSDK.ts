@@ -2,6 +2,8 @@
 
 import { GetIpInfoEntity } from './entity/GetIpInfoEntity'
 
+export type * from './MyIpTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class MyIpSDK {
 
 
 
+  _get_ip_info?: GetIpInfoEntity
+
+  // Idiomatic facade: `client.get_ip_info.list()` / `client.get_ip_info.load({ id })`.
+  get get_ip_info(): GetIpInfoEntity {
+    return (this._get_ip_info ??= new GetIpInfoEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.get_ip_info` instead. */
   GetIpInfo(data?: any) {
     const self = this
     return new GetIpInfoEntity(self,data)

@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `MyIpSDK.test()`.
 ## GetIpInfoEntity
 
 ```ts
-const get_ip_info = client.GetIpInfo()
+const get_ip_info = client.get_ip_info
 ```
 
 ### Fields
@@ -128,7 +127,7 @@ const get_ip_info = client.GetIpInfo()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetIpInfo().load({ id: 'get_ip_info_id' })
+const result = await client.get_ip_info.load({ id: 'get_ip_info_id' })
 ```
 
 ### Common Methods

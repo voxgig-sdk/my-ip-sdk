@@ -49,8 +49,7 @@ class GetIpInfoEntityTest extends TestCase
         // LOAD
         $get_ip_info_ref01_ent = $client->GetIpInfo(null);
         $get_ip_info_ref01_match_dt0 = [];
-        [$get_ip_info_ref01_data_dt0_loaded, $err] = $get_ip_info_ref01_ent->load($get_ip_info_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $get_ip_info_ref01_data_dt0_loaded = $get_ip_info_ref01_ent->load($get_ip_info_ref01_match_dt0, null);
         $this->assertNotNull($get_ip_info_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function get_ip_info_basic_setup($extra)
         "MYIP_TEST_GET_IP_INFO_ENTID" => $idmap,
         "MYIP_TEST_LIVE" => "FALSE",
         "MYIP_TEST_EXPLAIN" => "FALSE",
-        "MYIP_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function get_ip_info_basic_setup($extra)
     if ($env["MYIP_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MYIP_APIKEY"],
             ],
             $extra ?? [],
         ]);

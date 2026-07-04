@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://api.miip.my",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },

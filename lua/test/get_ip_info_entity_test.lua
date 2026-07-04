@@ -91,7 +91,6 @@ function get_ip_info_basic_setup(extra)
     ["MYIP_TEST_GET_IP_INFO_ENTID"] = idmap,
     ["MYIP_TEST_LIVE"] = "FALSE",
     ["MYIP_TEST_EXPLAIN"] = "FALSE",
-    ["MYIP_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function get_ip_info_basic_setup(extra)
   if env["MYIP_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["MYIP_APIKEY"],
       },
       extra or {},
     })
