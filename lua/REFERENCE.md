@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## GetIpInfoEntity
 
 ```lua
-local get_ip_info = client:get_ip_info(nil)
+local get_ip_info = client:GetIpInfo(nil)
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ local get_ip_info = client:get_ip_info(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:get_ip_info():load({ id = "get_ip_info_id" })
+local result, err = client:GetIpInfo():load({ id = "get_ip_info_id" })
 ```
 
 ### Common Methods

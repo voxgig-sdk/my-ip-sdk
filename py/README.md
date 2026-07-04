@@ -33,10 +33,12 @@ client = MyIpSDK()
 
 ### 3. Load a getipinfo
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.getipinfo.load({"id": "example_id"})
-    print(result)
+    getipinfo = client.GetIpInfo().load({"id": "example_id"})
+    print(getipinfo)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = MyIpSDK.test()
 
-result = client.getipinfo.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+getipinfo = client.GetIpInfo().load({"id": "test01"})
+# getipinfo contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -220,7 +223,7 @@ API path: `/`
 
 ### GetIpInfo
 
-Create an instance: `const get_ip_info = client.get_ip_info`
+Create an instance: `get_ip_info = client.GetIpInfo()`
 
 #### Operations
 
@@ -238,8 +241,8 @@ Create an instance: `const get_ip_info = client.get_ip_info`
 
 #### Example: Load
 
-```ts
-const get_ip_info = await client.get_ip_info.load({ id: 'get_ip_info_id' })
+```python
+get_ip_info = client.GetIpInfo().load({"id": "get_ip_info_id"})
 ```
 
 
@@ -313,7 +316,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-getipinfo = client.getipinfo
+getipinfo = client.GetIpInfo()
 getipinfo.load({"id": "example_id"})
 
 # getipinfo.data_get() now returns the loaded getipinfo data

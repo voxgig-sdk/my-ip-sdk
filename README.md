@@ -26,9 +26,9 @@ import { MyIpSDK } from '@voxgig-sdk/my-ip'
 
 const client = new MyIpSDK()
 
-// Load getipinfo data
-const getipinfo = await client.getipinfo.load({})
-console.log(getipinfo.data)
+// Load getipinfo data (returns a GetIpInfo)
+const getipinfo = await client.GetIpInfo().load()
+console.log(getipinfo)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from myip_sdk import MyIpSDK
 client = MyIpSDK()
 
 
-# Load a specific getipinfo
-getipinfo = client.getipinfo.load({"id": "example_id"})
+# Load a specific getipinfo (returns the record, raises on error)
+getipinfo = client.GetIpInfo().load({"id": "example_id"})
 print(getipinfo)
 ```
 
@@ -98,8 +98,8 @@ require_once 'myip_sdk.php';
 $client = new MyIpSDK();
 
 
-// Load a specific getipinfo
-$getipinfo = $client->getipinfo()->load(["id" => "example_id"]);
+// Load a specific getipinfo (returns the bare record; throws on error)
+$getipinfo = $client->GetIpInfo()->load(["id" => "example_id"]);
 print_r($getipinfo);
 ```
 
@@ -123,8 +123,8 @@ require_relative "MyIp_sdk"
 client = MyIpSDK.new
 
 
-# Load a specific getipinfo
-getipinfo = client.getipinfo.load({ "id" => "example_id" })
+# Load a specific getipinfo (returns the bare record; raises on error)
+getipinfo = client.GetIpInfo.load({ "id" => "example_id" })
 puts getipinfo
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific getipinfo
-local getipinfo, err = client:getipinfo():load({ id = "example_id" })
+local getipinfo, err = client:GetIpInfo():load({ id = "example_id" })
 print(getipinfo)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = MyIpSDK.test()
-const result = await client.getipinfo.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const getipinfo = await client.GetIpInfo().load({ id: 'test01' })
+// getipinfo is a bare GetIpInfo populated with mock data
+console.log(getipinfo)
 ```
 
 ### Python
 
 ```python
 client = MyIpSDK.test()
-result = client.getipinfo.load({"id": "test01"})
+getipinfo = client.GetIpInfo().load({"id": "test01"})
+print(getipinfo)
 ```
 
 ### PHP
 
 ```php
-$client = MyIpSDK::test();
-$result = $client->getipinfo()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = MyIpSDK::test([
+    "entity" => ["getipinfo" => ["test01" => ["id" => "test01"]]],
+]);
+$getipinfo = $client->GetIpInfo()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.GetIpInfo(nil).Load(
 ### Ruby
 
 ```ruby
-client = MyIpSDK.test
-result = client.getipinfo.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = MyIpSDK.test({
+  "entity" => { "getipinfo" => { "test01" => { "id" => "test01" } } },
+})
+getipinfo = client.GetIpInfo.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:getipinfo():load({ id = "test01" })
+local result, err = client:GetIpInfo():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

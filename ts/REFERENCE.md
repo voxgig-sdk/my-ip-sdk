@@ -109,7 +109,7 @@ Alias for `MyIpSDK.test()`.
 ## GetIpInfoEntity
 
 ```ts
-const get_ip_info = client.get_ip_info
+const get_ip_info = client.GetIpInfo()
 ```
 
 ### Fields
@@ -127,7 +127,7 @@ const get_ip_info = client.get_ip_info
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.get_ip_info.load({ id: 'get_ip_info_id' })
+const result = await client.GetIpInfo().load({ id: 'get_ip_info_id' })
 ```
 
 ### Common Methods
