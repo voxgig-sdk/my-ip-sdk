@@ -116,9 +116,9 @@ const get_ip_info = client.GetIpInfo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cc` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `ip` | ``$STRING`` | Yes |  |
+| `cc` | `string` | Yes |  |
+| `country` | `string` | Yes |  |
+| `ip` | `string` | Yes |  |
 
 ### Operations
 
@@ -127,7 +127,7 @@ const get_ip_info = client.GetIpInfo()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetIpInfo().load({ id: 'get_ip_info_id' })
+const result = await client.GetIpInfo().load()
 ```
 
 ### Common Methods

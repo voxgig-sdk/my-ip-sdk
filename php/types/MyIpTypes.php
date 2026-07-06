@@ -20,7 +20,7 @@ class GetIpInfo
     public string $ip;
 }
 
-/** Match filter for GetIpInfo#load (any subset of GetIpInfo fields). */
+/** Request payload for GetIpInfo#load. */
 class GetIpInfoLoadMatch
 {
     public ?string $cc = null;

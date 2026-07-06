@@ -11,5 +11,9 @@ export interface GetIpInfo {
   ip: string
 }
 
-export type GetIpInfoLoadMatch = Partial<GetIpInfo>
+export interface GetIpInfoLoadMatch {
+  cc?: string
+  country?: string
+  ip?: string
+}
 

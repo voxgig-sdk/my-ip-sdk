@@ -15,8 +15,7 @@ type GetIpInfo struct {
 	Ip string `json:"ip"`
 }
 
-// GetIpInfoLoadMatch mirrors the get_ip_info fields as an all-optional match
-// filter (Go analog of Partial<GetIpInfo>).
+// GetIpInfoLoadMatch is the typed request payload for GetIpInfo.LoadTyped.
 type GetIpInfoLoadMatch struct {
 	Cc *string `json:"cc,omitempty"`
 	Country *string `json:"country,omitempty"`

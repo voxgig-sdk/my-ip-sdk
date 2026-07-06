@@ -90,9 +90,9 @@ local get_ip_info = client:GetIpInfo(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cc` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `ip` | ``$STRING`` | Yes |  |
+| `cc` | `string` | Yes |  |
+| `country` | `string` | Yes |  |
+| `ip` | `string` | Yes |  |
 
 ### Operations
 
@@ -101,7 +101,7 @@ local get_ip_info = client:GetIpInfo(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GetIpInfo():load({ id = "get_ip_info_id" })
+local result, err = client:GetIpInfo():load()
 ```
 
 ### Common Methods

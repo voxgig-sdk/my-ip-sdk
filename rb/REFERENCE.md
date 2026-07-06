@@ -8,7 +8,7 @@ Complete API reference for the MyIp Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'my-ip_sdk'
+require_relative 'MyIp_sdk'
 
 client = MyIpSDK.new(options)
 ```
@@ -93,9 +93,9 @@ get_ip_info = client.GetIpInfo
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cc` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `ip` | ``$STRING`` | Yes |  |
+| `cc` | `String` | Yes |  |
+| `country` | `String` | Yes |  |
+| `ip` | `String` | Yes |  |
 
 ### Operations
 
@@ -104,7 +104,7 @@ get_ip_info = client.GetIpInfo
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.GetIpInfo.load({ "id" => "get_ip_info_id" })
+result = client.GetIpInfo.load()
 ```
 
 ### Common Methods

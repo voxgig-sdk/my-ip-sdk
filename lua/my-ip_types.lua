@@ -12,6 +12,9 @@
 ---@field ip string
 
 ---@class GetIpInfoLoadMatch
+---@field cc? string
+---@field country? string
+---@field ip? string
 
 local M = {}
 

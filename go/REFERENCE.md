@@ -97,9 +97,9 @@ get_ip_info := client.GetIpInfo(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cc` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `ip` | ``$STRING`` | Yes |  |
+| `cc` | `string` | Yes |  |
+| `country` | `string` | Yes |  |
+| `ip` | `string` | Yes |  |
 
 ### Operations
 
@@ -108,7 +108,7 @@ get_ip_info := client.GetIpInfo(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GetIpInfo(nil).Load(map[string]any{"id": "get_ip_info_id"}, nil)
+result, err := client.GetIpInfo(nil).Load(nil, nil)
 ```
 
 ### Common Methods

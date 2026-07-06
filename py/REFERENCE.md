@@ -8,7 +8,7 @@ Complete API reference for the MyIp Python SDK.
 ### Constructor
 
 ```python
-from my-ip_sdk import MyIpSDK
+from myip_sdk import MyIpSDK
 
 client = MyIpSDK(options)
 ```
@@ -87,9 +87,9 @@ get_ip_info = client.GetIpInfo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cc` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `ip` | ``$STRING`` | Yes |  |
+| `cc` | `str` | Yes |  |
+| `country` | `str` | Yes |  |
+| `ip` | `str` | Yes |  |
 
 ### Operations
 
@@ -98,7 +98,7 @@ get_ip_info = client.GetIpInfo()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GetIpInfo().load({"id": "get_ip_info_id"})
+result = client.GetIpInfo().load()
 ```
 
 ### Common Methods
