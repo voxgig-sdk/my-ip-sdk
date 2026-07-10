@@ -20,10 +20,10 @@ main: {
           url: "https://api.miip.my"
         }
       ]
+      summary: "This API allows users to programmatically retrieve their IP address along with the country it is located in and the corresponding two-letter country code."
       termsOfService: "https://www.miip.my/terms-of-service"
       title: "My IP API"
       version: "1.0.0"
+      website: "https://www.miip.my/api-docs/"
     }
   }
-}
-
