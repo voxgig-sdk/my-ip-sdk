@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from myip_sdk.utility.voxgig_struct import voxgig_struct as vs
 from myip_sdk import MyIpSDK
-from core import helpers
+from myip_sdk.core import helpers
 from test import runner
 
 
@@ -56,11 +56,11 @@ def _get_ip_info_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "MYIP_TEST_GET_IP_INFO_ENTID": {},
-        "MYIP_TEST_LIVE": "FALSE",
+        "MY_IP_TEST_GET_IP_INFO_ENTID": {},
+        "MY_IP_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("MYIP_TEST_LIVE") == "TRUE"
+    live = env.get("MY_IP_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

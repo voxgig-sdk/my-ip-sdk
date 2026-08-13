@@ -16,11 +16,11 @@
 import pytest
 
 from myip_sdk import MyIpSDK
-from core.error import MyIpError
-from core.result import MyIpResult
-from core.response import MyIpResponse
-from core.spec import MyIpSpec
-from feature.base_feature import MyIpBaseFeature
+from myip_sdk.core.error import MyIpError
+from myip_sdk.core.result import MyIpResult
+from myip_sdk.core.response import MyIpResponse
+from myip_sdk.core.spec import MyIpSpec
+from myip_sdk.feature.base_feature import MyIpBaseFeature
 
 
 def _client():

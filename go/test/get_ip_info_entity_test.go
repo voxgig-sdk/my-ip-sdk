@@ -44,7 +44,7 @@ func TestGetIpInfoEntity(t *testing.T) {
 		// The basic flow consumes synthetic IDs from the fixture. In live mode
 		// without an *_ENTID env override, those IDs hit the live API and 4xx.
 		if setup.syntheticOnly {
-			t.Skip("live entity test uses synthetic IDs from fixture — set MYIP_TEST_GET_IP_INFO_ENTID JSON to run live")
+			t.Skip("live entity test uses synthetic IDs from fixture — set MY_IP_TEST_GET_IP_INFO_ENTID JSON to run live")
 			return
 		}
 		client := setup.client
@@ -110,21 +110,21 @@ func get_ip_infoBasicSetup(extra map[string]any) *entityTestSetup {
 	// Detect ENTID env override before envOverride consumes it. When live
 	// mode is on without a real override, the basic test runs against synthetic
 	// IDs from the fixture and 4xx's. Surface this so the test can skip.
-	entidEnvRaw := os.Getenv("MYIP_TEST_GET_IP_INFO_ENTID")
+	entidEnvRaw := os.Getenv("MY_IP_TEST_GET_IP_INFO_ENTID")
 	idmapOverridden := entidEnvRaw != "" && strings.HasPrefix(strings.TrimSpace(entidEnvRaw), "{")
 
 	env := envOverride(map[string]any{
-		"MYIP_TEST_GET_IP_INFO_ENTID": idmap,
-		"MYIP_TEST_LIVE":      "FALSE",
-		"MYIP_TEST_EXPLAIN":   "FALSE",
+		"MY_IP_TEST_GET_IP_INFO_ENTID": idmap,
+		"MY_IP_TEST_LIVE":      "FALSE",
+		"MY_IP_TEST_EXPLAIN":   "FALSE",
 	})
 
-	idmapResolved := core.ToMapAny(env["MYIP_TEST_GET_IP_INFO_ENTID"])
+	idmapResolved := core.ToMapAny(env["MY_IP_TEST_GET_IP_INFO_ENTID"])
 	if idmapResolved == nil {
 		idmapResolved = core.ToMapAny(idmap)
 	}
 
-	if env["MYIP_TEST_LIVE"] == "TRUE" {
+	if env["MY_IP_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
 			},
@@ -133,13 +133,13 @@ func get_ip_infoBasicSetup(extra map[string]any) *entityTestSetup {
 		client = sdk.NewMyIpSDK(core.ToMapAny(mergedOpts))
 	}
 
-	live := env["MYIP_TEST_LIVE"] == "TRUE"
+	live := env["MY_IP_TEST_LIVE"] == "TRUE"
 	return &entityTestSetup{
 		client:        client,
 		data:          entityData,
 		idmap:         idmapResolved,
 		env:           env,
-		explain:       env["MYIP_TEST_EXPLAIN"] == "TRUE",
+		explain:       env["MY_IP_TEST_EXPLAIN"] == "TRUE",
 		live:          live,
 		syntheticOnly: live && !idmapOverridden,
 		now:           time.Now().UnixMilli(),

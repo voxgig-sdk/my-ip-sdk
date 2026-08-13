@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = MyIpSDK.test()
 
 const getipinfo = await client.GetIpInfo().load()
-// getipinfo is a bare entity populated with mock response data
+// getipinfo is the entity, populated with mock response data
+// — call getipinfo.data() for the record itself
 console.log(getipinfo)
 ```
 

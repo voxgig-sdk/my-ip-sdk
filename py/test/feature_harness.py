@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import MyIpControl
-from core.error import MyIpError
-from core.result import MyIpResult
-from core.spec import MyIpSpec
+from myip_sdk.config import make_config
+from myip_sdk.features import _make_feature
+from myip_sdk.core.control import MyIpControl
+from myip_sdk.core.error import MyIpError
+from myip_sdk.core.result import MyIpResult
+from myip_sdk.core.spec import MyIpSpec
 
 
 # True when this SDK was generated with the named feature.

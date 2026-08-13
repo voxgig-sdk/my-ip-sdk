@@ -19,11 +19,15 @@ import {
 describe('GetIpInfoDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when MYIP_TEST_LIVE=TRUE.
-  afterEach(liveDelay('MYIP_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when MY_IP_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MY_IP_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new MyIpSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -72,17 +76,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'MYIP_TEST_GET_IP_INFO_ENTID': {},
-    'MYIP_TEST_LIVE': 'FALSE',
+    'MY_IP_TEST_GET_IP_INFO_ENTID': {},
+    'MY_IP_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.MYIP_TEST_LIVE
+  const live = 'TRUE' === env.MY_IP_TEST_LIVE
 
   if (live) {
     const client = new MyIpSDK({
     })
 
-    let idmap: any = env['MYIP_TEST_GET_IP_INFO_ENTID']
+    let idmap: any = env['MY_IP_TEST_GET_IP_INFO_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

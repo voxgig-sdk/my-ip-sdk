@@ -35,7 +35,8 @@ func TestGetIpInfoDirect(t *testing.T) {
 		if setup.live {
 			// Live mode is lenient: synthetic IDs frequently 4xx. Skip
 			// rather than fail when the load endpoint isn't reachable with
-			// the IDs we can construct from setup.idmap.
+			// the IDs we can construct from setup.idmap — unless the model
+			// sets main.kit.test.live.strict.
 			if err != nil {
 				t.Skipf("load call failed (likely synthetic IDs against live API): %v", err)
 			}
@@ -97,11 +98,11 @@ func get_ip_infoDirectSetup(mockres any) *get_ip_infoDirectSetupResult {
 	calls := &[]map[string]any{}
 
 	env := envOverride(map[string]any{
-		"MYIP_TEST_GET_IP_INFO_ENTID": map[string]any{},
-		"MYIP_TEST_LIVE":    "FALSE",
+		"MY_IP_TEST_GET_IP_INFO_ENTID": map[string]any{},
+		"MY_IP_TEST_LIVE":    "FALSE",
 	})
 
-	live := env["MYIP_TEST_LIVE"] == "TRUE"
+	live := env["MY_IP_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
@@ -109,7 +110,7 @@ func get_ip_infoDirectSetup(mockres any) *get_ip_infoDirectSetupResult {
 		client := sdk.NewMyIpSDK(mergedOpts)
 
 		idmap := map[string]any{}
-		if entidRaw, ok := env["MYIP_TEST_GET_IP_INFO_ENTID"]; ok {
+		if entidRaw, ok := env["MY_IP_TEST_GET_IP_INFO_ENTID"]; ok {
 			if entidStr, ok := entidRaw.(string); ok && strings.HasPrefix(entidStr, "{") {
 				json.Unmarshal([]byte(entidStr), &idmap)
 			} else if entidMap, ok := entidRaw.(map[string]any); ok {
