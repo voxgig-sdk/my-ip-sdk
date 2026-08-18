@@ -40,7 +40,7 @@ class MyIpSDK
         $utility = new MyIpUtility();
         $this->_utility = $utility;
 
-        $config = MyIpConfig::make_config();
+        $config = MyIpConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
