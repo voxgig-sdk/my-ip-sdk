@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "MyIp",
+			"slug": "my-ip",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,16 +37,19 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "cc",
 						"req": true,
+						"short": "Two-letter country code in ISO 3166-1 alpha-2 format",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "country",
 						"req": true,
+						"short": "Country location of the IP address in English language",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ip",
 						"req": true,
+						"short": "IP Address of the client making the request",
 						"type": "`$STRING`",
 					},
 				},

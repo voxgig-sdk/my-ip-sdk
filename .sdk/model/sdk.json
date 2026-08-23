@@ -36,18 +36,21 @@
               "active": true,
               "name": "cc",
               "req": true,
+              "short": "Two-letter country code in ISO 3166-1 alpha-2 format",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "country",
               "req": true,
+              "short": "Country location of the IP address in English language",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ip",
               "req": true,
+              "short": "IP Address of the client making the request",
               "type": "`$STRING`"
             }
           ],

@@ -235,9 +235,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `cc` |  |
-| `country` |  |
-| `ip` |  |
+| `cc` | Two-letter country code in ISO 3166-1 alpha-2 format |
+| `country` | Country location of the IP address in English language |
+| `ip` | IP Address of the client making the request |
 
 Operations: Load.
 
@@ -262,9 +262,9 @@ Create an instance: `get_ip_info = client.GetIpInfo`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cc` | `String` |  |
-| `country` | `String` |  |
-| `ip` | `String` |  |
+| `cc` | `String` | Two-letter country code in ISO 3166-1 alpha-2 format |
+| `country` | `String` | Country location of the IP address in English language |
+| `ip` | `String` | IP Address of the client making the request |
 
 #### Example: Load
 

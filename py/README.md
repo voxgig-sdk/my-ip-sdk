@@ -241,9 +241,9 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `cc` |  |
-| `country` |  |
-| `ip` |  |
+| `cc` | Two-letter country code in ISO 3166-1 alpha-2 format |
+| `country` | Country location of the IP address in English language |
+| `ip` | IP Address of the client making the request |
 
 Operations: Load.
 
@@ -268,9 +268,9 @@ Create an instance: `get_ip_info = client.GetIpInfo()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cc` | `str` |  |
-| `country` | `str` |  |
-| `ip` | `str` |  |
+| `cc` | `str` | Two-letter country code in ISO 3166-1 alpha-2 format |
+| `country` | `str` | Country location of the IP address in English language |
+| `ip` | `str` | IP Address of the client making the request |
 
 #### Example: Load
 

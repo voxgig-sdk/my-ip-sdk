@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "MyIp",
+            "slug": "my-ip",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,16 +54,19 @@ def make_config():
           {
             "name": "cc",
             "req": True,
+            "short": "Two-letter country code in ISO 3166-1 alpha-2 format",
             "type": "`$STRING`",
           },
           {
             "name": "country",
             "req": True,
+            "short": "Country location of the IP address in English language",
             "type": "`$STRING`",
           },
           {
             "name": "ip",
             "req": True,
+            "short": "IP Address of the client making the request",
             "type": "`$STRING`",
           },
         ],

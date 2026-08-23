@@ -92,9 +92,9 @@ $get_ip_info = $client->GetIpInfo();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cc` | `string` | Yes |  |
-| `country` | `string` | Yes |  |
-| `ip` | `string` | Yes |  |
+| `cc` | `string` | Yes | Two-letter country code in ISO 3166-1 alpha-2 format |
+| `country` | `string` | Yes | Country location of the IP address in English language |
+| `ip` | `string` | Yes | IP Address of the client making the request |
 
 ### Operations
 

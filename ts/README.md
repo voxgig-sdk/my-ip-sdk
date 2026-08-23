@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,9 +285,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `cc` |  |
-| `country` |  |
-| `ip` |  |
+| `cc` | Two-letter country code in ISO 3166-1 alpha-2 format |
+| `country` | Country location of the IP address in English language |
+| `ip` | IP Address of the client making the request |
 
 Operations: load.
 
@@ -312,9 +312,9 @@ Create an instance: `const get_ip_info = client.GetIpInfo()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cc` | `string` |  |
-| `country` | `string` |  |
-| `ip` | `string` |  |
+| `cc` | `string` | Two-letter country code in ISO 3166-1 alpha-2 format |
+| `country` | `string` | Country location of the IP address in English language |
+| `ip` | `string` | IP Address of the client making the request |
 
 #### Example: Load
 

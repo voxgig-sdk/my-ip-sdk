@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'MyIp',
+        slug: "my-ip",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -57,16 +68,19 @@ class Config {
         {
           "name": "cc",
           "req": true,
+          "short": "Two-letter country code in ISO 3166-1 alpha-2 format",
           "type": "`$STRING`"
         },
         {
           "name": "country",
           "req": true,
+          "short": "Country location of the IP address in English language",
           "type": "`$STRING`"
         },
         {
           "name": "ip",
           "req": true,
+          "short": "IP Address of the client making the request",
           "type": "`$STRING`"
         }
       ],

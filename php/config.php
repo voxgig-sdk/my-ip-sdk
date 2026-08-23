@@ -33,6 +33,9 @@ class MyIpConfig
         return [
             "main" => [
                 "name" => "MyIp",
+                "slug" => "my-ip",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -56,16 +59,19 @@ class MyIpConfig
             [
               'name' => 'cc',
               'req' => true,
+              'short' => 'Two-letter country code in ISO 3166-1 alpha-2 format',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'country',
               'req' => true,
+              'short' => 'Country location of the IP address in English language',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'ip',
               'req' => true,
+              'short' => 'IP Address of the client making the request',
               'type' => '`$STRING`',
             ],
           ],

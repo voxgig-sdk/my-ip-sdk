@@ -93,9 +93,9 @@ get_ip_info = client.GetIpInfo
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cc` | `String` | Yes |  |
-| `country` | `String` | Yes |  |
-| `ip` | `String` | Yes |  |
+| `cc` | `String` | Yes | Two-letter country code in ISO 3166-1 alpha-2 format |
+| `country` | `String` | Yes | Country location of the IP address in English language |
+| `ip` | `String` | Yes | IP Address of the client making the request |
 
 ### Operations
 

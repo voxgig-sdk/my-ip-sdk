@@ -6,7 +6,7 @@ The Golang SDK for the MyIp API — an entity-oriented client using standard Go 
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.GetIpInfo(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,9 +258,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"cc"` |  |
-| `"country"` |  |
-| `"ip"` |  |
+| `"cc"` | Two-letter country code in ISO 3166-1 alpha-2 format |
+| `"country"` | Country location of the IP address in English language |
+| `"ip"` | IP Address of the client making the request |
 
 Operations: Load.
 
@@ -285,9 +285,9 @@ Create an instance: `getIpInfo := client.GetIpInfo(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `cc` | `string` |  |
-| `country` | `string` |  |
-| `ip` | `string` |  |
+| `cc` | `string` | Two-letter country code in ISO 3166-1 alpha-2 format |
+| `country` | `string` | Country location of the IP address in English language |
+| `ip` | `string` | IP Address of the client making the request |
 
 #### Example: Load
 

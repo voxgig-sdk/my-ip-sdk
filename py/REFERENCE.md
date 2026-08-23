@@ -87,9 +87,9 @@ get_ip_info = client.GetIpInfo()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cc` | `str` | Yes |  |
-| `country` | `str` | Yes |  |
-| `ip` | `str` | Yes |  |
+| `cc` | `str` | Yes | Two-letter country code in ISO 3166-1 alpha-2 format |
+| `country` | `str` | Yes | Country location of the IP address in English language |
+| `ip` | `str` | Yes | IP Address of the client making the request |
 
 ### Operations
 
