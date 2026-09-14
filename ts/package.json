@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/my-ip",
+  "name": "@voxgig-sdk/my-ip-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the My IP public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [
