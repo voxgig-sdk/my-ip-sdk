@@ -31,6 +31,12 @@ main: kit: entity: get_ip_info: {
       name: "load"
       points: [
         {
+          contract: {
+            id: "GET /"
+            json: "{\"operationId\":\"getIpInfo\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"cc\":\"US\",\"country\":\"United States\",\"ip\":\"66.249.75.9\"},\"schema\":{\"properties\":{\"cc\":{\"description\":\"Two-letter country code in ISO 3166-1 alpha-2 format\",\"example\":\"US\",\"pattern\":\"^[A-Z]{2}$\",\"type\":\"string\"},\"country\":{\"description\":\"Country location of the IP address in English language\",\"example\":\"United States\",\"type\":\"string\"},\"ip\":{\"description\":\"IP Address of the client making the request\",\"example\":\"66.249.75.9\",\"type\":\"string\"}},\"required\":[\"ip\",\"country\",\"cc\"],\"type\":\"object\"}}},\"description\":\"Successful response with IP address information\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/"
           transform: {
