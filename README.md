@@ -105,12 +105,12 @@ local result, err = client:GetIpInfo():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/my-ip-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/my-ip-sdk/releases) |
-| Python | `voxgig-sdk-my-ip` | publish pending — [install from git tag](https://github.com/voxgig-sdk/my-ip-sdk/releases) |
-| PHP | `voxgig-sdk/my-ip` | publish pending — [install from git tag](https://github.com/voxgig-sdk/my-ip-sdk/releases) |
+| TypeScript | `@voxgig-sdk/my-ip-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/my-ip-sdk/tags) |
+| Python | `voxgig-sdk-my-ip` | publish pending — [install from git tag](https://github.com/voxgig-sdk/my-ip-sdk/tags) |
+| PHP | `voxgig-sdk/my-ip` | publish pending — [install from git tag](https://github.com/voxgig-sdk/my-ip-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/my-ip-sdk/go` | `go get github.com/voxgig-sdk/my-ip-sdk/go@latest` |
-| Ruby | `voxgig-sdk-my-ip` | publish pending — [install from git tag](https://github.com/voxgig-sdk/my-ip-sdk/releases) |
-| Lua | `voxgig-sdk-my-ip` | publish pending — [install from git tag](https://github.com/voxgig-sdk/my-ip-sdk/releases) |
+| Ruby | `voxgig-sdk-my-ip` | publish pending — [install from git tag](https://github.com/voxgig-sdk/my-ip-sdk/tags) |
+| Lua | `voxgig-sdk-my-ip` | publish pending — [install from git tag](https://github.com/voxgig-sdk/my-ip-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/my-ip-sdk/go-cli` | `go install github.com/voxgig-sdk/my-ip-sdk/go-cli/cmd/my-ip@latest` |
 | Go MCP server | `github.com/voxgig-sdk/my-ip-sdk/go-mcp` | `go get github.com/voxgig-sdk/my-ip-sdk/go-mcp@latest` |
 
